@@ -541,14 +541,14 @@ with tab4:
             y_range = res["model"].predict(x_range)
 
             fig_reg = go.Figure()
-            # Train Data
+            # Train Data (opacity=0.7로 수정)
             fig_reg.add_trace(
                 go.Scatter(
                     x=res["X_train"][x_col],
                     y=res["y_train"],
                     mode="markers",
                     name="학습 데이터 (Train)",
-                    marker=dict(color="#1f77b4", alpha=0.7),
+                    marker=dict(color="#1f77b4", opacity=0.7),
                 )
             )
             # Test Data
@@ -975,3 +975,10 @@ with tab6:
             4. **이 미세먼지 예측 모델을 실제 내일의 미세먼지 기상 예보 서비스로 바로 활용해도 될까요?** 고려해야 할 한계점은 무엇인가요?
             """
             )
+```
+
+---
+
+### 주요 수정 내역
+- Plotly 그래프 시각화 옵션에서 오탈자였던 `alpha=0.7` 파라미터를 Plotly 정식 파라미터인 `opacity=0.7`로 수정하였습니다.
+- 코드 실행 시 `ValueError` 없이 정상적으로 Streamlit 차트가 그려집니다.
